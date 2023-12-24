@@ -1,0 +1,193 @@
+﻿<section class="slider">
+    <div class="slider-container">
+        
+        @foreach(var inputRadio in classCsses)
+        {
+            <input type="radio" name="btn-radio" id="@($"radio{inputRadio.IdSlide}")" checked="@inputRadio.RadioChecked" />
+        }
+
+        @foreach(var slideDiv in classCsses)
+        {
+            <div id="@($"slide{slideDiv.IdSlide}")" class="@slideDiv.SlideChildren" style="@slideDiv.MarginLeft">
+                <p>Slide @slideDiv.IdSlide</p>
+            </div>
+        }
+
+        <div class="nav-auto">
+            @foreach (var navAuto in classCsses)
+            {
+                <div class="@navAuto.ClassNavAuto"></div>
+            }
+        </div>
+
+        <div class="nav-manual">
+            @foreach (var navManual in classCsses)
+            {
+                <label for="@($"radio{navManual.IdSlide}")"
+                       class="@navManual.ClassNavManual"
+                @onclick="@(() => { CheckBtn(classCsses.IndexOf(navManual)); })">
+                </label>
+            }
+        </div>
+        
+    </div>
+    <button @onclick="PreviousSlide">Anterior</button>
+    <label>@countSlide</label>
+    <button @onclick="NextSlide">Próximo</button>
+</section>
+
+@code {
+
+    //ActualSlide(classCsses.IndexOf(navManual));
+    //CheckBtn(classCsses.IndexOf(navManual));
+
+    private List<ClassCss> classCsses = new List<ClassCss>();
+
+    public int countSlide { get; set; } = 0;
+    private int slideN { get; set; } = 0;
+    private int ValueMarginLeft { get; set; } = 0;
+    private int ValueLeft { get; set; } = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        classCsses.Add(
+            new ClassCss()
+                {
+                    IdSlide = 1,
+                    SlideChildren = "slide-children black",
+                    ClassNavManual = "manual-btn",
+                    ClassNavAuto = "backgroud-solid",
+                    MarginLeft = "margin-left:0%",
+                    RadioChecked = true
+                }
+        );
+        classCsses.Add(
+            new ClassCss()
+                {
+                    IdSlide = 2,
+                    SlideChildren = "slide-children blue",
+                    ClassNavManual = "manual-btn",
+                    ClassNavAuto = "auto-btn2",
+                    MarginLeft = "margin-left:0%",
+                    RadioChecked = false
+                }
+        );
+        classCsses.Add(
+            new ClassCss()
+                {
+                    IdSlide = 3,
+                    SlideChildren = "slide-children pink",
+                    ClassNavManual = "manual-btn",
+                    ClassNavAuto = "auto-btn3",
+                    MarginLeft = "margin-left:0%",
+                    RadioChecked = false
+                }
+        );
+        classCsses.Add(
+           new ClassCss()
+               {
+                   IdSlide = 4,
+                   SlideChildren = "slide-children yelow",
+                   ClassNavManual = "manual-btn",
+                   ClassNavAuto = "auto-btn4",
+                   MarginLeft = "margin-left:0%",
+                   RadioChecked = false
+               }
+       );
+    }
+
+    void AutoSlide()
+    {
+
+    }
+
+    void NextSlide()
+    {
+        countSlide++;
+        if(countSlide < classCsses.Count)
+        {
+            classCsses[countSlide - 1].MarginLeft = $"margin-left:-25%";
+        }
+        else
+        {
+            countSlide = 0;
+            ClearCss();
+        }
+
+        Checked();
+    }
+
+    void PreviousSlide()
+    {
+        if(countSlide != 0)
+        {
+            classCsses[countSlide - 1].MarginLeft = $"margin-left:0%";
+            countSlide = (countSlide - 1);
+        }
+        else
+        {
+            classCsses[0].MarginLeft = $"margin-left:0%";
+        }
+        Checked();
+    }
+
+    void ActualSlide(int value)
+    {
+
+        if (countSlide > value)
+        {
+            for (int i = (countSlide - 1); i >= value; --i)
+            {
+                classCsses[i].MarginLeft = "margin-left:0%";
+                countSlide--;
+            }
+        }
+        else
+        {
+            for (countSlide = countSlide; countSlide < value; countSlide++)
+            {
+                classCsses[countSlide].MarginLeft = "margin-left:-25%";
+            }
+        }
+
+    }
+
+    void CheckBtn(int value)
+    {
+        ActualSlide(value);
+        Checked();
+    }
+
+    void ClearCss()
+    {
+        foreach (var css in classCsses)
+            css.MarginLeft = string.Empty;
+    }
+
+    void Checked()
+    {
+        foreach (var css in classCsses)
+        {
+            css.RadioChecked = false;
+            css.ClassNavAuto = "";
+        }
+
+        classCsses[countSlide].RadioChecked = true;
+        classCsses[countSlide].ClassNavAuto = "backgroud-solid";
+    }
+
+    public class ClassCss
+    {
+        public int IdSlide { get; set; }
+
+        public string? SlideChildren { get; set; }
+
+        public string? ClassNavManual { get; set; }
+
+        public string? ClassNavAuto { get; set; }
+
+        public string? MarginLeft { get; set; }
+
+        public bool RadioChecked { get; set; }
+    }
+}
