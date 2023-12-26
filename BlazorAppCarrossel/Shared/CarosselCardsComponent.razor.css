@@ -1,0 +1,44 @@
+﻿section.caroussel {
+    margin: 0 auto;
+    padding: 0 !important;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.carossel-container {
+    width:400%;
+    height:auto;
+    display:flex;
+}
+
+.btn-caroussel-previous {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: absolute;
+    z-index: 1;
+    bottom: 18%;
+    border: none;
+    background-color: white;
+}
+
+    .btn-caroussel-previous img{
+        height:32px;
+    }
+
+.btn-caroussel-next {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: absolute;
+    z-index: 1;
+    right:0;
+    bottom: 18%;
+    border: none;
+    background-color: white;
+}
+
+    .btn-caroussel-next img {
+        height: 32px;
+    }

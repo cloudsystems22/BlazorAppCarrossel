@@ -1,0 +1,17 @@
+﻿.card {
+    width: 4.5%;
+    height: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #808080;
+    border-radius: 8px;
+    margin: 5px;
+    position: relative;
+    transition: 600ms;
+    cursor:pointer;
+}
+
+    .card:hover {
+        background-color: #e7e0e0;
+    }

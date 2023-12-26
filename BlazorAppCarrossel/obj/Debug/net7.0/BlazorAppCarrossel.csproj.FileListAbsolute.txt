@@ -827,3 +827,5 @@ C:\Users\a.david.fico.neto\source\repos\BlazorAppCarrossel\BlazorAppCarrossel\ob
 C:\Users\a.david.fico.neto\source\repos\BlazorAppCarrossel\BlazorAppCarrossel\obj\Debug\net7.0\BlazorAppCarrossel.pdb
 C:\Users\a.david.fico.neto\source\repos\BlazorAppCarrossel\BlazorAppCarrossel\obj\Debug\net7.0\ref\BlazorAppCarrossel.dll
 C:\Users\a.david.fico.neto\source\repos\BlazorAppCarrossel\BlazorAppCarrossel\obj\Debug\net7.0\scopedcss\Shared\SliderComponent.razor.rz.scp.css
+C:\Users\a.david.fico.neto\source\repos\BlazorAppCarrossel\BlazorAppCarrossel\obj\Debug\net7.0\scopedcss\Shared\CardComponent.razor.rz.scp.css
+C:\Users\a.david.fico.neto\source\repos\BlazorAppCarrossel\BlazorAppCarrossel\obj\Debug\net7.0\scopedcss\Shared\CarosselCardsComponent.razor.rz.scp.css

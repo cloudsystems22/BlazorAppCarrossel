@@ -1,0 +1,139 @@
+﻿<section class="caroussel">
+    <button @onclick="PreviousCard" class="btn-caroussel-previous"><img src="images/backcaroussel.png" /></button><label>@countCard</label>
+    <div class="carossel-container">
+   
+        @foreach (var card in cards)
+        {
+            <CardComponent card="@card" />
+        }
+
+    </div>
+    <button @onclick="NextCard" class="btn-caroussel-next"><img src="images/nextcaroussel.png" /></button>
+</section>
+
+
+@code {
+    private List<Card> cards = new List<Card>();
+
+    public int countCard { get; set; } = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        cards.Add(
+            new Card()
+                {
+                    IdCard = 1,
+                    Description = "Cards 01",
+                    MarginLeft = "margin-left:0%"
+                }
+        );
+        cards.Add(
+           new Card()
+               {
+                   IdCard = 2,
+                   Description = "Cards 02",
+                   MarginLeft = "margin-left:0%"
+               }
+       );
+        cards.Add(
+            new Card()
+                {
+                    IdCard = 3,
+                    Description = "Cards 03",
+                    MarginLeft = "margin-left:0%"
+                }
+        );
+        cards.Add(
+           new Card()
+               {
+                   IdCard = 4,
+                   Description = "Cards 04",
+                   MarginLeft = "margin-left:0%"
+               }
+       );
+        cards.Add(
+            new Card()
+                {
+                    IdCard = 5,
+                    Description = "Cards 05",
+                    MarginLeft = "margin-left:0%"
+                }
+        );
+        cards.Add(
+            new Card()
+                {
+                    IdCard = 6,
+                    Description = "Cards 06",
+                    MarginLeft = "margin-left:0%"
+                }
+        );
+        cards.Add(
+            new Card()
+                {
+                    IdCard = 7,
+                    Description = "Cards 07",
+                    MarginLeft = "margin-left:0%"
+                }
+        );
+        cards.Add(
+            new Card()
+                {
+                    IdCard = 8,
+                    Description = "Cards 08",
+                    MarginLeft = "margin-left:0%"
+                }
+        );
+        cards.Add(
+            new Card()
+                {
+                    IdCard = 9,
+                    Description = "Cards 09",
+                    MarginLeft = "margin-left:0%"
+                }
+        );
+        cards.Add(
+           new Card()
+               {
+                   IdCard = 10,
+                   Description = "Cards 10",
+                   MarginLeft = "margin-left:0%"
+               }
+       );
+    }
+
+    void NextCard()
+    {
+        int divdois = 0;
+        countCard++;
+        divdois = (cards.Count / 2) + 1;
+        if (countCard < divdois)
+        {
+            cards[countCard - 1].MarginLeft = $"margin-left:-4.5%";
+        }
+        else
+        {
+            countCard = 0;
+            ClearCss();
+        }
+    }
+
+    void PreviousCard()
+    {
+        if (countCard != 0)
+        {
+            cards[countCard - 1].MarginLeft = $"margin-left:0%";
+            countCard = (countCard - 1);
+        }
+        else
+        {
+            cards[0].MarginLeft = $"margin-left:0%";
+        }
+
+    }
+
+    void ClearCss()
+    {
+        foreach (var card in cards)
+            card.MarginLeft = string.Empty;
+    }
+}

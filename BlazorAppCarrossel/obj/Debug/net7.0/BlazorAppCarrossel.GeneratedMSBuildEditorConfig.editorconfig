@@ -44,6 +44,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/a.david.fico.neto/source/repos/BlazorAppCarrossel/BlazorAppCarrossel/Shared/CardComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENhcmRDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-0f1ztyu5nb
+
+[C:/Users/a.david.fico.neto/source/repos/BlazorAppCarrossel/BlazorAppCarrossel/Shared/CarosselCardsComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENhcm9zc2VsQ2FyZHNDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-t1qdpkm8p1
+
 [C:/Users/a.david.fico.neto/source/repos/BlazorAppCarrossel/BlazorAppCarrossel/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-k225bq9f9g

@@ -1,3 +1,66 @@
+/* /Shared/CardComponent.razor.rz.scp.css */
+.card[b-0f1ztyu5nb] {
+    width: 4.5%;
+    height: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #808080;
+    border-radius: 8px;
+    margin: 5px;
+    position: relative;
+    transition: 600ms;
+    cursor:pointer;
+}
+
+    .card:hover[b-0f1ztyu5nb] {
+        background-color: #e7e0e0;
+    }
+/* /Shared/CarosselCardsComponent.razor.rz.scp.css */
+section.caroussel[b-t1qdpkm8p1] {
+    margin: 0 auto;
+    padding: 0 !important;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.carossel-container[b-t1qdpkm8p1] {
+    width:400%;
+    height:auto;
+    display:flex;
+}
+
+.btn-caroussel-previous[b-t1qdpkm8p1] {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: absolute;
+    z-index: 1;
+    bottom: 18%;
+    border: none;
+    background-color: white;
+}
+
+    .btn-caroussel-previous img[b-t1qdpkm8p1]{
+        height:32px;
+    }
+
+.btn-caroussel-next[b-t1qdpkm8p1] {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: absolute;
+    z-index: 1;
+    right:0;
+    bottom: 18%;
+    border: none;
+    background-color: white;
+}
+
+    .btn-caroussel-next img[b-t1qdpkm8p1] {
+        height: 32px;
+    }
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-k225bq9f9g] {
     position: relative;
@@ -161,7 +224,7 @@ section.slider[b-e9iwycheu6] {
 .slider-container[b-e9iwycheu6] {
     width: 400%;
     height: auto;
-    display: flex;    
+    display: flex;
 }
 
 .slider-container input[b-e9iwycheu6]{
@@ -174,38 +237,17 @@ section.slider[b-e9iwycheu6] {
     position: relative;
     text-align: center;
     transition: 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
     .slide-children p[b-e9iwycheu6]{
         color:white;
     }
 
-.nav-manual[b-e9iwycheu6], .nav-auto[b-e9iwycheu6] {
-    position:absolute;
-    width:100%;
-    margin-top:27%;
-    display:flex;
-    justify-content:center;
-}
-
-    .nav-manual .manual-btn[b-e9iwycheu6], .nav-auto div[b-e9iwycheu6] {
-        border: 1px solid #242629;
-        padding: 10px;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: 1s;
-    }
-
-        .nav-manual .manual-btn:not(:last-child)[b-e9iwycheu6], .nav-auto div:not(:last-child)[b-e9iwycheu6] {
-            margin-right: 10px;
-        }
-
-        .nav-manual .manual-btn:hover[b-e9iwycheu6] {
-            background-color: #242629;
-        }
-
 .backgroud-solid[b-e9iwycheu6] {
-    background-color: #636363;
+    background-color: #fff;
 }
 
 .black[b-e9iwycheu6] {
@@ -232,10 +274,70 @@ section.slider[b-e9iwycheu6] {
     border-bottom: 125px solid transparent;
 }
 
-.btn-next[b-e9iwycheu6] {
+.btn-slides-left[b-e9iwycheu6] {
     border: 0;
-    background-color: transparent;
     padding: 0;
-    width: 75px;
-    height: 195px;
+    height: 310px;
+    color: white;
+    background-color: transparent;
+    z-index: 100;
+    position: absolute;
 }
+
+    .btn-slides-left img[b-e9iwycheu6]{
+        height:32px;
+    }
+
+.btn-slides-right[b-e9iwycheu6] {
+    border: 0;
+    padding: 0;
+    height: 310px;
+    color: white;
+    background-color: transparent;
+    z-index: 100;
+    position: absolute;
+    right: 0;
+}
+
+    .btn-slides-right img[b-e9iwycheu6] {
+        height: 32px;
+    }
+
+.nav-slides[b-e9iwycheu6] {
+    width: 100%;
+    height: 320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+}
+
+.nav-item-auto[b-e9iwycheu6] {
+    z-index: 100;
+    position: absolute;
+    left: 47%;
+    bottom: 50%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+.nav-item-auto label[b-e9iwycheu6]{
+    color:#fff;
+}
+
+.select-slide[b-e9iwycheu6]{
+    width:10px;
+    height:10px;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    margin:2px;
+    cursor:pointer;
+    transition: 1s;
+}
+
+.select-slide:hover[b-e9iwycheu6] {
+    background-color:#ffffffc8;
+    transition: 1s;
+}
+

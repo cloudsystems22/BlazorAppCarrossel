@@ -1,6 +1,6 @@
 ﻿<section class="slider">
     <div class="slider-container">
-        
+        <button @onclick="PreviousSlide" class="btn-slides-left"><img src="images/back.png" /></button>
         @foreach(var inputRadio in classCsses)
         {
             <input type="radio" name="btn-radio" id="@($"radio{inputRadio.IdSlide}")" checked="@inputRadio.RadioChecked" />
@@ -12,34 +12,22 @@
                 <p>Slide @slideDiv.IdSlide</p>
             </div>
         }
-
-        <div class="nav-auto">
-            @foreach (var navAuto in classCsses)
-            {
-                <div class="@navAuto.ClassNavAuto"></div>
-            }
-        </div>
-
-        <div class="nav-manual">
+        <div class="nav-item-auto">
             @foreach (var navManual in classCsses)
             {
-                <label for="@($"radio{navManual.IdSlide}")"
-                       class="@navManual.ClassNavManual"
+                <label for=""
+                       class="@navManual.ClassNavAuto"
                 @onclick="@(() => { CheckBtn(classCsses.IndexOf(navManual)); })">
                 </label>
             }
+            @* <label>@countSlide</label> *@
         </div>
-        
+        <button @onclick="NextSlide" class="btn-slides-right"><img src="images/next.png" /></button>
     </div>
-    <button @onclick="PreviousSlide">Anterior</button>
-    <label>@countSlide</label>
-    <button @onclick="NextSlide">Próximo</button>
+    
 </section>
 
 @code {
-
-    //ActualSlide(classCsses.IndexOf(navManual));
-    //CheckBtn(classCsses.IndexOf(navManual));
 
     private List<ClassCss> classCsses = new List<ClassCss>();
 
@@ -56,7 +44,7 @@
                     IdSlide = 1,
                     SlideChildren = "slide-children black",
                     ClassNavManual = "manual-btn",
-                    ClassNavAuto = "backgroud-solid",
+                    ClassNavAuto = "select-slide backgroud-solid",
                     MarginLeft = "margin-left:0%",
                     RadioChecked = true
                 }
@@ -67,7 +55,7 @@
                     IdSlide = 2,
                     SlideChildren = "slide-children blue",
                     ClassNavManual = "manual-btn",
-                    ClassNavAuto = "auto-btn2",
+                    ClassNavAuto = "select-slide",
                     MarginLeft = "margin-left:0%",
                     RadioChecked = false
                 }
@@ -78,7 +66,7 @@
                     IdSlide = 3,
                     SlideChildren = "slide-children pink",
                     ClassNavManual = "manual-btn",
-                    ClassNavAuto = "auto-btn3",
+                    ClassNavAuto = "select-slide",
                     MarginLeft = "margin-left:0%",
                     RadioChecked = false
                 }
@@ -89,7 +77,7 @@
                    IdSlide = 4,
                    SlideChildren = "slide-children yelow",
                    ClassNavManual = "manual-btn",
-                   ClassNavAuto = "auto-btn4",
+                   ClassNavAuto = "select-slide",
                    MarginLeft = "margin-left:0%",
                    RadioChecked = false
                }
@@ -169,25 +157,10 @@
         foreach (var css in classCsses)
         {
             css.RadioChecked = false;
-            css.ClassNavAuto = "";
+            css.ClassNavAuto = "select-slide";
         }
 
         classCsses[countSlide].RadioChecked = true;
-        classCsses[countSlide].ClassNavAuto = "backgroud-solid";
-    }
-
-    public class ClassCss
-    {
-        public int IdSlide { get; set; }
-
-        public string? SlideChildren { get; set; }
-
-        public string? ClassNavManual { get; set; }
-
-        public string? ClassNavAuto { get; set; }
-
-        public string? MarginLeft { get; set; }
-
-        public bool RadioChecked { get; set; }
+        classCsses[countSlide].ClassNavAuto = "select-slide backgroud-solid";
     }
 }
